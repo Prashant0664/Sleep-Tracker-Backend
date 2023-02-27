@@ -6,4 +6,4 @@ router.post('/main', test);
 router.patch('/del', send);
 router.post('/getd',getdata);
 router.patch('/change',change)
-module.exports = router;
+module.exports = router; 

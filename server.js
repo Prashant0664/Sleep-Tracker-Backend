@@ -12,6 +12,7 @@ const app = express();
 const connectDB = require('./db/connect');
 
 const mainroute=require('./routes/mainroute')
+const testr=require('./routes/route')
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
 
@@ -23,10 +24,10 @@ app.use(helmet());
 
 app.use(xss());
 
+// app.use(notFoundMiddleware);
+// app.use(errorHandlerMiddleware);
 app.use('/api/v1/home', mainroute);
-
-app.use(notFoundMiddleware);
-app.use(errorHandlerMiddleware);
+app.use('/',testr);
 
 const port = process.env.PORT || 5000;
 
