@@ -5,6 +5,8 @@ const path = require('path');
 // extra security packages
 const helmet = require('helmet');
 const xss = require('xss-clean');
+const cors = require("cors");
+
 
 const express = require('express');
 const app = express();
@@ -13,6 +15,7 @@ const connectDB = require('./db/connect');
 
 const mainroute=require('./routes/mainroute')
 const testr=require('./routes/route')
+app.use(cors());
 // const notFoundMiddleware = require('./middleware/not-found');
 // const errorHandlerMiddleware = require('./middleware/error-handler');
 
@@ -22,7 +25,7 @@ app.use(express.static(path.resolve(__dirname, './client/build')));
 app.use(express.json());
 app.use(helmet());
 
-app.use(xss());
+// app.use(xss());
 
 // app.use(notFoundMiddleware);
 // app.use(errorHandlerMiddleware);
